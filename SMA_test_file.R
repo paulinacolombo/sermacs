@@ -17,7 +17,7 @@ table(combo$ICE)
 
 ################### Table 1 - fine 4/7/24 ####
 library(table1)
-table1_html <- table1(~Area_Code + Sex + age_sum_mo + as.factor(age_cat) + Dehydration_Status + as.factor(Culture_Results) +
+table1_html <- table1(~Area_Code + Sex + as.factor(age_cat) + Dehydration_Status + as.factor(Culture_Results) +
          as.factor(qPCR_tcpA_Result_CT28) + as.factor(qPCR_ICP1_Result_CT28) +
          as.factor(qPCR_ICP2_Result_CT28) + as.factor(qPCR_ICP3_ResultCT28) + 
            as.factor(AntYN_clean) | RDT, data=combo, overall=F)
