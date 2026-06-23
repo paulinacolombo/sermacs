@@ -20,14 +20,14 @@ library(broom)
 #   data <- read_csv("data/az_discharges.csv")
 # (e.g., an extract from the Arizona Hospital Discharge Database)
 
-set.seed(13)
+set.seed(42)
 
 az_counties <- c("Maricopa", "Pima", "Pinal", "Yavapai", "Yuma",
                   "Coconino", "Mohave", "Cochise")
 
 organisms <- c("MRSA", "VRE", "CRE", "C. difficile", "MDR-Pseudomonas")
 
-n_discharges <- 100
+n_discharges <- 1000
 
 discharge_data <- tibble(
   discharge_id = 1:n_discharges,
@@ -48,7 +48,7 @@ discharge_data <- discharge_data %>%
     length_of_stay = round(pmax(1, rnorm(
       n_discharges,
       mean = 5 + interfacility_transfer * 4,
-      sd = 2
+      sd = 3
     ))),
     mdro_prob = plogis(
       -2.5 +
@@ -154,7 +154,7 @@ print(transfer_plot)
 # MDRO rate by Arizona county
 county_plot <- mdro_rate_by_county %>%
   ggplot(aes(x = fct_reorder(county, pct_mdro), y = pct_mdro)) +
-  geom_col(fill = "purple") +
+  geom_col(fill = "steelblue") +
   coord_flip() +
   labs(
     title = "MDRO Rate by Arizona County",
