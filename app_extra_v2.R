@@ -60,7 +60,7 @@ format_num <- function(x, n = 0) {
 # User interface (UI) ----------------------------------------------------------
 ui <- fluidPage(
   dashboardPage(
-    skin = "purple",
+    skin = "blue",
     title = "Ebola dashboard",
     
     ## Header ------------------------------------------------------------------
